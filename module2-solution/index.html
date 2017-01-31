@@ -33,7 +33,7 @@
        <div>
          <ol>
           <li ng-repeat="item in toBuy.items">
-           {{ item.quantity }} <em> of</em> {{ item.name }}
+           <em>ToBuy</em> {{ item.quantity }} <em>of</em>  {{ item.name }}
            <button ng-click="toBuy.boughtItems($index);" class="btn btn-default"><span id="ok" class="glyphicon glyphicon-ok"></span> Bought</button>
            <button ng-click="toBuy.removeItems($index);" class="btn btn-default"><span id ="remove" class="glyphicon glyphicon-remove"></span> Remove</button>
           </li>
@@ -48,7 +48,7 @@
        <h2>Already Bought:</h2>
          <ol>
            <li ng-repeat="item in already.bought">
-             {{ item.quantity }} and {{ item.name }}
+             <em>Bought</em> {{ item.quantity }} <em>of</em> {{ item.name }}
              <button ng-click="already.removeBought($index);" class="btn btn-default"><span id ="remove" class="glyphicon glyphicon-remove"></span> Remove</button>
            </li>
          </ol>
