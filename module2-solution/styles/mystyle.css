@@ -1,0 +1,30 @@
+.emptyMessage {
+  font-weight: bold;
+  color: red;
+  font-size: 1.2em;
+}
+li {
+  margin-bottom: 7px;
+  font-size: 1.2em;
+}
+li > button {
+  margin-left: 6px;
+}
+button > span {
+  color: orange;
+}
+
+#remove{
+  color: red;
+}
+
+#ok{
+  color: green;
+}
+
+hr {
+border-color: #EEEEEE ;
+border-style: solid ;
+border-width: 1px 50px;
+margin: 18px 0;
+}

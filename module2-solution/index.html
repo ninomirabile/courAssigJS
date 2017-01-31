@@ -1,0 +1,60 @@
+  <!doctype html>
+  <html ng-app='ShoppingListCheckOff'>
+    <head>
+      <title>Shopping List Check Off</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+      <link href="styles/mystyle.css" rel="stylesheet" type="text/css">
+      <script src="app.js"></script>
+    </head>
+
+    <body>
+
+     <div class="container">
+      <h1>Shopping List Check Off</h1>
+      <!-- List Maker -->
+      <div class="col-lg-12 col-lg-offset-0 col-xs-8 col-xs-offset-2 " ng-controller="ToBuyController as toBuy">
+       <h2>List maker:</h2>
+        <div class="row justify-content-center">
+          <div class="form-inline">
+           <input type="text" ng-model="toBuy.itemName" placeholder="name" class=" form-control" />
+           <input type="text" ng-model="toBuy.quantity" placeholder="quantity" class="form-control" />
+           <button ng-click=" toBuy.addItems();" type="submit" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span> Insert</button>
+         </div>
+        </div>
+       </div>
+
+
+      <!-- To Buy List -->
+      <div class="col-lg-6 col-lg-offset-0 col-xs-8 col-xs-offset-2 " ng-controller="ToBuyController as toBuy">
+       <hr>
+       <h2>To Buy:</h2>
+       <div>
+         <ol>
+          <li ng-repeat="item in toBuy.items">
+           {{ item.quantity }} <em> of</em> {{ item.name }}
+           <button ng-click="toBuy.boughtItems($index);" class="btn btn-default"><span id="ok" class="glyphicon glyphicon-ok"></span> Bought</button>
+           <button ng-click="toBuy.removeItems($index);" class="btn btn-default"><span id ="remove" class="glyphicon glyphicon-remove"></span> Remove</button>
+          </li>
+         </ol>
+       </div>
+       <div class="emptyMessage" ng-if="toBuy.items.length == 0">Everything is bought!</div>
+      </div>
+
+      <!-- Already Bought List -->
+      <div class="col-lg-6 col-lg-offset-0 col-xs-8 col-xs-offset-2 " ng-controller="AlreadyBoughtController as already">
+      <hr>
+       <h2>Already Bought:</h2>
+         <ol>
+           <li ng-repeat="item in already.bought">
+             {{ item.quantity }} and {{ item.name }}
+             <button ng-click="already.removeBought($index);" class="btn btn-default"><span id ="remove" class="glyphicon glyphicon-remove"></span> Remove</button>
+           </li>
+         </ol>
+       <div class="emptyMessage"  ng-if="already.bought.length == 0">Nothing bought yet.</div>
+      </div>
+
+    </div><!-- end container-->
+  </body>
+</html>
