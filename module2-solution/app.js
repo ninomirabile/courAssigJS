@@ -18,7 +18,7 @@ function ToBuyController(ShoppingListCheckOffService){
      toBuy.itemName = null; // clear input field
      toBuy.quantity = null; // clear input field
    };
-   
+
    toBuy.items = ShoppingListCheckOffService.showItems();
 
    toBuy.boughtItems = function (index){
@@ -50,7 +50,11 @@ function ShoppingListCheckOffService(){
   var service = this;
 
   // To Buy Items
-  var items =[];
+  var items = [{ name: "cookies", quantity: 10 }, { name: "fry", quantity: 3 },
+      { name: "candy", quantity: 25 }, { name: "chocolate", quantity: 15 },
+      { name: "nutella", quantity: 2 }];
+
+
   service.addItems = function(itemName, quantity){
     var item = {
         name: itemName,
