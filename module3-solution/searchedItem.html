@@ -1,0 +1,12 @@
+<h2 ng-if="list.empty" class="error col-md-12 text-center">Nothing found</h2>
+<table class="table table-striped">
+  <tbody>
+    <tr ng-repeat="item in list.found">
+      <td>{{ item.short_name }}</td>
+      <td>{{ item.description }}</td>
+      <td>
+        <button ng-click="list.onRemove({index: $index});" class="btn btn-warning">Don't want this one!</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
